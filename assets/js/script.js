@@ -8,6 +8,19 @@ setInterval(function() {
     let minute = date.getMinutes()
     let second = date.getSeconds()
 
+    let daynight
+
+    if (hour >= 12) {
+        daynight = 'pm'
+    } else {
+        daynight = 'am'
+    }
+
+    // formato 12
+    if (hour > 12) {
+        hour -= 12
+    }
+
     if (String(hour).length == 1) {
         hour = `0${hour}`
     }
@@ -20,5 +33,5 @@ setInterval(function() {
         second = `0${second}`
     }
 
-    area.innerHTML = `${hour}:${minute}:${second}` 
+    area.innerHTML = `${hour}:${minute}:${second} ${daynight}` 
 }, 1000)
