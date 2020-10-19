@@ -1,3 +1,20 @@
+let doze = document.querySelector('#form12')
+let vintqua = document.querySelector('#form24')
+
+doze.addEventListener('click', () => {
+    if (doze.checked) {
+        console.log('doze')
+    }
+})
+
+vintqua.addEventListener('click', () => {
+    if (vintqua.checked) {
+        console.log('vintqua')
+    }
+})
+
+
+
 // pega a div
 let area = document.querySelector('#relogio')
 
@@ -8,6 +25,7 @@ setInterval(function() {
     let minute = date.getMinutes()
     let second = date.getSeconds()
 
+    // am am
     let daynight
 
     if (hour >= 12) {
@@ -21,6 +39,7 @@ setInterval(function() {
         hour -= 12
     }
 
+    // add zero
     if (String(hour).length == 1) {
         hour = `0${hour}`
     }
@@ -33,5 +52,6 @@ setInterval(function() {
         second = `0${second}`
     }
 
-    area.innerHTML = `${hour}:${minute}:${second} ${daynight}` 
+    // inner
+    area.innerHTML = `${hour}:${minute}:${second}${daynight}` 
 }, 1000)

@@ -9,6 +9,7 @@
 
 body {
     background-color: #000;
+    color: white;
 }
 
 #area {
@@ -27,4 +28,15 @@ body {
     align-items: center;
     color: red;
     font-size: 5em;
+}
+
+#inputs {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin: 0 15px 15px 0;
+}
+
+#inputs input {
+    margin-left: 20px;
 }
