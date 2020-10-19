@@ -1,23 +1,7 @@
+// input radio
 let doze = document.querySelector('#form12')
-let vintqua = document.querySelector('#form24')
 
-doze.addEventListener('click', () => {
-    if (doze.checked) {
-        console.log('doze')
-    }
-})
-
-vintqua.addEventListener('click', () => {
-    if (vintqua.checked) {
-        console.log('vintqua')
-    }
-})
-
-
-
-// pega a div
-let area = document.querySelector('#relogio')
-
+// loop
 setInterval(function() {
     // pega as horas
     let date = new Date()
@@ -25,25 +9,7 @@ setInterval(function() {
     let minute = date.getMinutes()
     let second = date.getSeconds()
 
-    // am am
-    let daynight
-
-    if (hour >= 12) {
-        daynight = 'pm'
-    } else {
-        daynight = 'am'
-    }
-
-    // formato 12
-    if (hour > 12) {
-        hour -= 12
-    }
-
     // add zero
-    if (String(hour).length == 1) {
-        hour = `0${hour}`
-    }
-
     if (String(minute).length == 1) {
         minute = `0${minute}`
     } 
@@ -52,6 +18,24 @@ setInterval(function() {
         second = `0${second}`
     }
 
-    // inner
-    area.innerHTML = `${hour}:${minute}:${second}${daynight}` 
+    // 12 ou 24
+    if (doze.checked) {
+        // am pm
+        let daynight
+
+        if (hour >= 12) {
+            daynight = 'pm'
+        } else {
+            daynight = 'am'
+        }
+
+        // formato 12
+        if (hour > 12) {
+            hour -= 12
+        }
+        
+        area.innerHTML = `${hour}:${minute}:${second}${daynight}` 
+    } else {
+        area.innerHTML = `${hour}:${minute}:${second}`
+    }  
 }, 1000)
